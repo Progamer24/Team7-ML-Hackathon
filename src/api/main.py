@@ -110,11 +110,18 @@ def health_check():
 
 
 @app.get("/trips")
-def list_student_trips():
-    """List available student test trips for evaluation."""
-    trips = loader.list_trips("student_test")
-    logger.info("Listing student test trips: found %d trips", len(trips))
-    return {"available_trips": trips}
+def list_test_trips():
+    """List available evaluation trips, prioritizing evaluator_test when present."""
+    eval_trips = loader.list_trips("evaluator_test")
+    student_trips = loader.list_trips("student_test")
+    # Present evaluator_test trips first, followed by student_test
+    combined_trips = eval_trips if eval_trips else student_trips
+    logger.info("Listing trips: found %d evaluator_test, %d student_test", len(eval_trips), len(student_trips))
+    return {
+        "available_trips": combined_trips,
+        "evaluator_trips": eval_trips,
+        "student_trips": student_trips,
+    }
 
 
 @app.post("/predict", response_model=PredictResponse)

@@ -53,7 +53,7 @@ class TripLoader:
             if candidate.exists():
                 trip_path = candidate
         else:
-            for s in ["train", "student_test"]:
+            for s in ["evaluator_test", "student_test", "train"]:
                 candidate = self.data_dir / s / trip_id
                 if candidate.exists():
                     trip_path = candidate

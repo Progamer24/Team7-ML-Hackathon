@@ -61,21 +61,31 @@ try:
 except Exception:
     st.sidebar.error("API Status: Disconnected (Check Laptop 1 connection)")
 
-# Fetch Student Test Trips
-fallback_trips = [
+# Fetch Evaluation Trips from API
+eval_trips = [
+    "00000015", "00000017", "00000023", "00000030", "00000049",
+    "00000059", "00000067", "00000073", "00000087", "00000094",
+]
+student_trips = [
     "00000000", "00000007", "00000009", "00000040", "00000052",
     "00000056", "00000065", "00000076", "00000077", "00000091",
 ]
 
-available_trips = fallback_trips
 try:
     trips_resp = requests.get(f"{api_base_url}/trips", timeout=3)
     if trips_resp.status_code == 200:
-        available_trips = trips_resp.json().get("available_trips", fallback_trips)
+        data = trips_resp.json()
+        if data.get("evaluator_trips"):
+            eval_trips = data["evaluator_trips"]
+        if data.get("student_trips"):
+            student_trips = data["student_trips"]
 except Exception:
     pass
 
-selected_trip = st.sidebar.selectbox("Select Reserved Evaluation Trip", available_trips)
+partition = st.sidebar.radio("Evaluation Dataset Partition", ["Evaluator Test (Official)", "Student Test (Dev)"], index=0)
+available_trips = eval_trips if "Evaluator" in partition else student_trips
+
+selected_trip = st.sidebar.selectbox("Select Reserved Trip", available_trips)
 
 col_btn1, col_btn2 = st.sidebar.columns(2)
 run_predict = col_btn1.button("Run Prediction", use_container_width=True)
