@@ -1,0 +1,50 @@
+{
+  "system_name": "PathSnap",
+  "version": "1.0.0",
+  "spatial_parameters": {
+    "search_radius_m": 120.0,
+    "top_k_candidates": 8,
+    "lat_scale_m_per_deg": 111139.0
+  },
+  "hmm_parameters": {
+    "sigma_z": 20.0,
+    "beta": 35.0,
+    "unconnected_penalty": 0.0001
+  },
+  "features": [
+    "perp_dist",
+    "heading_diff",
+    "proj_ratio",
+    "dist_to_start_node",
+    "dist_to_end_node",
+    "arc_length",
+    "gps_speed",
+    "distance_rank"
+  ],
+  "model_configuration": {
+    "selected_model": "RandomForestClassifier",
+    "algorithm_family": "Ensemble",
+    "n_estimators": 100,
+    "max_depth": 12,
+    "min_samples_split": 5,
+    "class_weight": "balanced",
+    "random_state": 42
+  },
+  "deployment": {
+    "api_port": 8000,
+    "ui_port": 8501,
+    "reserved_evaluation_trips": [
+      "00000000",
+      "00000007",
+      "00000009",
+      "00000040",
+      "00000052",
+      "00000056",
+      "00000065",
+      "00000076",
+      "00000077",
+      "00000091"
+    ]
+  }
+}
+
