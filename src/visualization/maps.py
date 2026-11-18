@@ -145,7 +145,7 @@ def create_folium_map(
         m = folium.Map(
             location=[center_lat, center_lon],
             zoom_start=14,
-            tiles="CartoDB positron",
+            tiles="OpenStreetMap",
         )
 
         # 1. Road Network Layer (Gray lines)

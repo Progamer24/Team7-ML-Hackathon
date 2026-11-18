@@ -14,6 +14,11 @@ train,00000014,True,448,4067,8288,False,True,True,82.33,True,True,1.0
 train,00000016,True,1305,8205,15098,False,True,True,100.0,True,True,1.0
 train,00000018,True,379,5980,11545,False,True,True,89.95,True,True,1.0
 train,00000019,True,2354,52694,108517,False,True,True,100.0,True,True,0.9945
+train,00000020,True,2353,2739,5958,False,True,True,100.0,True,True,1.0
+train,00000021,True,15783,732,1510,False,True,True,99.96,True,True,1.0
+train,00000022,True,474,9607,18982,False,True,True,53.07,True,True,1.0
+train,00000024,True,801,25782,51609,False,True,True,97.12,True,True,1.0
+train,00000025,True,1179,38035,85639,False,True,True,69.35,True,True,1.0
 student_test,00000000,True,2503,8542,18196,False,True,True,99.96,True,True,1.0
 student_test,00000007,True,1354,2061,4369,False,True,True,100.0,True,True,1.0
 student_test,00000009,True,1049,6745,13106,False,True,True,99.9,True,True,1.0

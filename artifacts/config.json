@@ -25,10 +25,13 @@
     "selected_model": "RandomForestClassifier",
     "algorithm_family": "Ensemble",
     "n_estimators": 100,
-    "max_depth": 12,
-    "min_samples_split": 5,
-    "class_weight": "balanced",
-    "random_state": 42
+    "max_depth": 11,
+    "min_samples_split": 8,
+    "class_weight": "balanced_subsample",
+    "random_state": 42,
+    "min_samples_leaf": 2,
+    "max_features": "sqrt",
+    "best_cv_score": 0.8447
   },
   "deployment": {
     "api_port": 8000,
@@ -47,4 +50,3 @@
     ]
   }
 }
-

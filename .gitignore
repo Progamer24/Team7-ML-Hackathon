@@ -51,3 +51,11 @@ htmlcov/
 *.tmp
 .env.local
 
+# Internal Team Documentation, PDFs & Utility Scripts
+PDFs/
+*.pdf
+Member[1-4].md
+member*.md
+run.txt
+refresh_all.py
+

@@ -128,7 +128,7 @@ if run_evaluate or run_predict:
                     center_lat = float(np.mean(raw_gps[:, 0]))
                     center_lon = float(np.mean(raw_gps[:, 1]))
 
-                    fmap = folium.Map(location=[center_lat, center_lon], zoom_start=14, tiles="CartoDB positron")
+                    fmap = folium.Map(location=[center_lat, center_lon], zoom_start=14, tiles="OpenStreetMap")
 
                     # Layer 1: Raw GPS
                     gps_layer = folium.FeatureGroup(name="Observed GPS Trajectory")

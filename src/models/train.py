@@ -56,10 +56,12 @@ def get_model_pipeline(
     elif name in ["random_forest", "rf"]:
         clf = RandomForestClassifier(
             n_estimators=hyperparams.get("n_estimators", 100),
-            max_depth=hyperparams.get("max_depth", 12),
-            min_samples_split=hyperparams.get("min_samples_split", 5),
+            max_depth=hyperparams.get("max_depth", 11),
+            min_samples_split=hyperparams.get("min_samples_split", 8),
+            min_samples_leaf=hyperparams.get("min_samples_leaf", 2),
+            max_features=hyperparams.get("max_features", "sqrt"),
             n_jobs=-1,
-            class_weight="balanced",
+            class_weight=hyperparams.get("class_weight", "balanced_subsample"),
             random_state=42,
         )
     elif name in ["gradient_boosting", "gb", "gbm"]:
@@ -73,6 +75,8 @@ def get_model_pipeline(
         clf = MLPClassifier(
             hidden_layer_sizes=hyperparams.get("hidden_layer_sizes", (64, 32)),
             max_iter=hyperparams.get("max_iter", 300),
+            early_stopping=True,
+            n_iter_no_change=10,
             random_state=42,
         )
     else:

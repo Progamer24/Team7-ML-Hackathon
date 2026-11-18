@@ -92,13 +92,14 @@ class TrainingPipeline:
         X_test = df_test[FeatureExtractor.FEATURE_NAMES].values
         y_test = df_test["is_match"].values
 
-        # 5 Required Model Families
+        # Model Families (Linear, Instance, Tree, Ensemble, Boosting, Neural Network)
         models = [
             ("Logistic Regression", "logistic_regression", "Linear / Logistic"),
             ("K-Nearest Neighbors", "knn", "Instance-based"),
             ("Decision Tree", "decision_tree", "Tree-based"),
             ("Random Forest", "random_forest", "Ensemble"),
             ("Gradient Boosting", "gradient_boosting", "Boosting"),
+            ("Neural Network (MLP)", "mlp", "Neural Network"),
         ]
 
         comparison_records = []
