@@ -20,3 +20,4 @@ def test_road_graph_construction():
     # Test boundary / invalid indices
     assert graph.are_arcs_adjacent(-1, 0) is False
     assert graph.are_arcs_incident(0, 99999999) is False
+

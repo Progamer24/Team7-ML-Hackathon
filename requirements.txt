@@ -25,4 +25,5 @@ requests>=2.31.0
 
 # Testing & Quality Assurance
 pytest>=7.4.0
+httpx>=0.25.0
 

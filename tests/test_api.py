@@ -38,3 +38,4 @@ def test_api_evaluate():
     assert data["trip_id"] == "00000000"
     assert 0.0 <= data["observation_top1_accuracy"] <= 1.0
     assert 0.0 <= data["route_continuity"] <= 1.0
+

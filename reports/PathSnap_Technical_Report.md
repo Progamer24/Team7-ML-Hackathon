@@ -127,3 +127,4 @@ The HMM Viterbi decoder eliminates fragmented jumps between parallel streets and
 - **Laptop 1 Startup**: Run `deployment\laptop1_setup.bat`.
 - **Laptop 2 Startup**: Run `deployment\laptop2_setup.bat`.
 - **Interactive Evaluation**: All 10 reserved evaluation trips are fully supported and verified through the `/predict` and `/evaluate` endpoints.
+

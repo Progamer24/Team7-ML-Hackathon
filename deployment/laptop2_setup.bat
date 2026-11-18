@@ -28,3 +28,4 @@ echo Starting Streamlit on http://localhost:8501...
 streamlit run ui\app.py --server.port 8501 --server.address 0.0.0.0
 
 pause
+
