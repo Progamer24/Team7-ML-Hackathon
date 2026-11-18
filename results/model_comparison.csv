@@ -1,0 +1,6 @@
+Model,Algorithm Family,Key Configuration,CV Macro F1-score,Top-1 Accuracy,Route Continuity,Student-Test Macro F1,Log Loss
+Logistic Regression,Linear / Logistic,LogisticRegression,0.7578,0.7876,0.9376,0.7894,0.2976
+K-Nearest Neighbors,Instance-based,KNeighborsClassifier,0.7711,0.6868,0.8368,0.8032,0.5551
+Decision Tree,Tree-based,DecisionTreeClassifier,0.7791,0.709,0.859,0.8116,0.4722
+Random Forest,Ensemble,RandomForestClassifier,0.8055,0.7285,0.8785,0.8391,0.2223
+Gradient Boosting,Boosting,GradientBoostingClassifier,0.8016,0.7191,0.8691,0.835,0.2071
