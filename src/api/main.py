@@ -109,6 +109,26 @@ def health_check():
     }
 
 
+@app.get("/model_info")
+def get_model_info():
+    """Return model architecture, parameters, and benchmark metadata."""
+    import json
+    cfg = {}
+    config_path = ARTIFACTS_DIR / "config.json"
+    if config_path.exists():
+        with open(config_path, "r") as f:
+            cfg = json.load(f)
+    return {
+        "status": "success",
+        "configuration": cfg,
+        "selected_model": "RandomForestClassifier (Tuned)",
+        "algorithm_family": "Ensemble",
+        "features": FeatureExtractor.FEATURE_NAMES,
+        "hmm_parameters": {"sigma_z": hmm.sigma_z, "beta": hmm.beta, "unconnected_penalty": hmm.unconnected_penalty},
+        "spatial_parameters": {"search_radius_m": candidate_generator.search_radius_m, "top_k": candidate_generator.top_k},
+    }
+
+
 @app.get("/trips")
 def list_test_trips():
     """List available evaluation trips, prioritizing evaluator_test when present."""
